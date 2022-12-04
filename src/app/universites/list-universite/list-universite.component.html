@@ -1,0 +1,39 @@
+<div id="content" #content> 
+  <h1>List Universite</h1>
+  <a class="btn btn-sm btn-warning" (click)="toadd()">
+    Add Universite  
+</a>
+  <table class="table">
+      <thead>
+          <tr>
+              <th>id</th>
+              <th>Nom Universite</th>
+              <th>Adresse</th>
+              <th>Description</th>
+           
+              <th>action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let u of listUniversites">
+              <td>{{u.idUni}}</td>
+              <td>{{u.nomUni }}</td>
+              <td> {{u.adresse}}</td>
+              <td> {{u.description}}
+              </td>
+              
+              <td>
+                  <button class="btn btn-sm btn-danger" (click)="deleteUniv(u.idUni)" >
+                      delete
+                  </button>
+                  &nbsp;
+                  <a class="btn btn-sm btn-warning" (click)="updateUniversite(u.idUni)">
+                      update  
+                  </a>
+                  &nbsp;
+                  
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  </div>

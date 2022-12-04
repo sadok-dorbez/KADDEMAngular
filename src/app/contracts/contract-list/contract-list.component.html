@@ -1,0 +1,45 @@
+<div id="content" #content> 
+    <h1>List Contracts</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Date Début</th>
+                <th>Date Fin</th>
+                <th>Specialité</th>
+                <th>Montant</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contrat of contratList">
+                <td>{{contrat.idContrat}}</td>
+                <td>{{contrat.dateDebutContrat }}</td>
+                <td> {{contrat.dateFinContrat}}
+                </td>
+                <td> {{contrat.specialite}}
+                </td>
+                <td> {{contrat.montantContrat}}
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-danger" (click)="delete(contrat.idContrat)" >
+                        delete
+                    </button>
+                    &nbsp;
+                    <a class="btn btn-sm btn-warning" [routerLink]="['/contracts/updateContract',contrat.idContrat]">
+                        update  
+                    </a>
+                    &nbsp;
+                    <a class="btn btn-sm btn-info" [routerLink]="['/contracts/',contrat.idContrat]" >
+                        details  
+                    </a>
+                    &nbsp;
+                    <a class="btn btn-sm btn-info" (click)="makePDF()" >
+                        generate pdf  
+                    </a>
+    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>

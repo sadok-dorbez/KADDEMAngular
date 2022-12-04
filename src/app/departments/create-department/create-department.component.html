@@ -1,0 +1,69 @@
+<h1>{{action}}Department</h1>
+<form #f="ngForm">
+ <div class="form-group col-md-6">
+    <label>Name:*</label>
+    <input type="text" name="nomDepart" [(ngModel)]="department.nomDepart"
+    class="form-control" required minlength="3"
+     pattern="[A-Za-z]{3,12}$" #n="ngModel">
+    <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+        <div *ngIf="n.hasError('required')">
+           this field is required
+          </div>
+        <div *ngIf="n.hasError('minlength')">
+           minlength = 3 !
+        </div>
+        <div *ngIf="n.hasError('pattern')">
+          error pattern
+       </div>
+    </div>
+ </div>
+  <div class="form-group col-md-6">
+    <label>Type</label>
+    <input type="text" name="type"
+    [(ngModel)]="department.type"
+    class="form-control" required #qt="ngModel">
+    <div class="alert alert-danger" *ngIf="qt.invalid && qt.touched">
+      this field is required
+    </div>
+    <div *ngIf="qt.hasError('minlength')">
+      minlength = 3 !
+   </div>
+   <div *ngIf="qt.hasError('pattern')">
+     error pattern
+  </div>
+  </div>
+  <div class="form-group col-md-6">
+   <label>Description</label>
+   <input type="textarea" name="description"
+   [(ngModel)]="department.description"
+   class="form-control" required #qt="ngModel">
+   <div class="alert alert-danger" *ngIf="qt.invalid && qt.touched">
+     this field is required
+   </div>
+   <div *ngIf="qt.hasError('minlength')">
+     minlength = 3 !
+  </div>
+  <div *ngIf="qt.hasError('pattern')">
+    error pattern
+ </div>
+ </div>
+ <div class="form-group">
+  <label> Universite</label>
+  <div class="col-sm-10">
+ <select name="department" class="from-controler">
+ <option>---select--</option>  
+ 
+ <option> universite</option>
+
+</select>
+ </div>
+</div>
+
+
+  <button (click)="add()"
+   class="btn btn-sm btn-success"
+   [disabled]="f.invalid" >
+    {{action}}
+  </button>
+
+</form>

@@ -1,0 +1,33 @@
+<div id="content" #content> 
+    <h1>List etudiants</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Option</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let etudiant of etudiantList">
+                <td>{{etudiant.idEtudiant}}</td>
+                <td>{{etudiant.nomE}}</td>
+                <td> {{etudiant.prenomE}}
+                </td>
+                <td> {{etudiant.options}}
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-danger" (click)="delete(etudiant.idEtudiant)" >
+                        Delete
+                    </button>
+                    &nbsp;
+                    <a class="btn btn-sm btn-warning" >
+                        Update  
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>

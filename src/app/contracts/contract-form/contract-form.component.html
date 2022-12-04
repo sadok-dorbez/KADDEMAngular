@@ -1,0 +1,51 @@
+
+
+<h1> {{action}} contract</h1>
+<form style="padding-left: 250;"#f="ngForm">
+  <div class="form-group col-md-6">
+    <label>Date debut</label>
+    <input [(ngModel)]="contrat.dateDebutContrat" type="date" name="dateDebutContrat" class="form-control" 
+     required   #t="ngModel" min={{mindate}} max="2024-01-01">
+     <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+      <div *ngIf="t.hasError('required')">This field is required</div>
+      <div *ngIf="t.hasError('min')">This date is invalid</div>
+
+  </div>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Date fin</label>
+    <input [(ngModel)]="contrat.dateFinContrat" type="date" name="dateFinContrat" class="form-control" required #p="ngModel">
+    <div class="alert alert-danger" *ngIf="p.invalid && p.touched">
+      <div *ngIf="p.hasError('required')">This field is required</div>
+  </div>
+  </div>
+  <div class="form-group col-md-6">
+    <label>specialite</label>
+    <select [(ngModel)]="contrat.specialite" name="specialite" class="form-control" required #s="ngModel">
+      <option value="IA">IA</option>
+      <option value="RESEAU">RESEAU</option>
+      <option value="kids">CLOUD</option>
+      <option value="kids">SECURITE</option>
+    </select>
+    <div class="alert alert-danger" *ngIf="s.invalid && s.touched">
+      <div *ngIf="s.hasError('required')">This field is required</div>
+  </div>
+  </div>
+  <div class="form-group col-md-6">
+    <label>montantContrat</label>
+    <input [(ngModel)]="contrat.montantContrat" type="number" name="montantContrat" required class="form-control" required #m="ngModel" min="250" max="5000">
+    <div class="alert alert-danger" *ngIf="m.invalid && m.touched">
+      <div *ngIf="m.hasError('required')">This field is required</div>
+      <div *ngIf="m.hasError('min')">Montant minimal = 250</div>
+      <div *ngIf="m.hasError('max')">Montant maximal = 5000</div>
+  </div>
+  </div>
+  <br>
+  <button class="btn btn-success" (click)="add()" [disabled]="f.invalid">
+    save
+  </button>
+  &nbsp;
+  <button type="reset" class="btn btn-warning">
+    reset
+  </button>
+</form>

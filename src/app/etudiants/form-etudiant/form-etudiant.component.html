@@ -1,0 +1,46 @@
+<h1> {{action}} Etudiant</h1>
+<form style="padding-left: 250;"#f="ngForm">
+  <div class="form-group col-md-6">
+    <label>Nom</label>
+    <input [(ngModel)]="etudiant.nomE" type="text" name="nomE" class="form-control" 
+    required minlength="3" pattern="[a-zA-Z]{3,12}$"
+    #t="ngModel">
+   <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+       <div *ngIf="t.hasError('required')">this field is required</div>
+       <div *ngIf="t.hasError('minlength')">minlength = 3!</div>
+       <div *ngIf="t.hasError('pattern')">error pattern</div>
+  </div>
+  </div>
+  <div class="form-group col-md-6">
+  <label>Prenom</label>
+  <input [(ngModel)]="etudiant.prenomE" type="text" name="prenomE" class="form-control" 
+  required minlength="3" pattern="[a-zA-Z]{3,12}$"
+  #p="ngModel">
+ <div class="alert alert-danger" *ngIf="p.invalid && p.touched">
+     <div *ngIf="p.hasError('required')">this field is required</div>
+     <div *ngIf="p.hasError('minlength')">minlength = 3!</div>
+     <div *ngIf="p.hasError('pattern')">error pattern</div>
+</div>
+</div>
+  <div class="form-group col-md-6">
+    <label>Option</label>
+    <select [(ngModel)]="etudiant.options" name="option" class="form-control" required #s="ngModel">
+      <option value="GAMIX">GAMIX</option>
+      <option value="SE">SE</option>
+      <option value="SIM">SIM</option>
+      <option value="NIDS">NIDS</option>
+    </select>
+    <div class="alert alert-danger" *ngIf="s.invalid && s.touched">
+      <div *ngIf="s.hasError('required')">This field is required</div>
+  </div>
+  </div>
+  <br>
+  <button class="btn btn-success" (click)="add()" [disabled]="f.invalid">
+    save
+  </button>
+  &nbsp;
+  <button type="reset" class="btn btn-warning">
+    reset
+  </button>
+</form>
+
