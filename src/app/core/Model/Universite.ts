@@ -1,8 +1,8 @@
 
-import { Department } from "./Department";
+import { Departement } from "./Department";
 export class Universite{
-    idUni:number;
-    nomUni:String;
+    idUniversite:number;
+    nomUniversite:String;
     adresse:String;
     description:String;
     

@@ -11,8 +11,8 @@ export class DetailsUniversiteComponent implements OnInit {
 
   constructor( private universiteservice:UniversiteService) { }
   currentUniversite: Universite ={
-    idUni:0,
-    nomUni:"",
+    idUniversite:0,
+    nomUniversite:"",
     adresse:"",
     description:"",
   
@@ -36,8 +36,8 @@ export class DetailsUniversiteComponent implements OnInit {
   }
   refreshList(): void {
     this.retriveUniversites();
-    this.currentUniversite = {  idUni:0,
-      nomUni:"",
+    this.currentUniversite = {  idUniversite:0,
+      nomUniversite:"",
       adresse:"",
       description:"",
       
@@ -49,7 +49,11 @@ export class DetailsUniversiteComponent implements OnInit {
     this.currentUniversite = universite;
     this.currentIndex = index;
   }
-  
+  searchText:string='';
+    onSearchTextEntered(searchValue:string){
+      this.searchText=searchValue
+      console.log(this.searchText)
+    }
   
   }
 

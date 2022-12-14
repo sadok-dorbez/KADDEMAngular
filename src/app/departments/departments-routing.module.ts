@@ -4,11 +4,13 @@ import { CreateDepartmentComponent } from './create-department/create-department
 import { DepartmentsComponent } from './departments.component';
 import { DetailsDepartmentComponent } from './details-department/details-department.component';
 import { ListDepartmentComponent } from './list-department/list-department.component';
+import { ShowEtudiantsComponent } from './show-etudiants/show-etudiants.component';
 
 const routes: Routes = [{ path: '', component: DepartmentsComponent },
 {path: "Department", component:DetailsDepartmentComponent},
   {path:"Department/list", component:ListDepartmentComponent},
   {path:"Department/add", component:CreateDepartmentComponent},
+  {path:"Department/show/:id", component:ShowEtudiantsComponent},
   { path: '', redirectTo: 'putDepartement', pathMatch: 'full' },
   { path: "Department/putDepartement/:id", component:CreateDepartmentComponent },
 ]

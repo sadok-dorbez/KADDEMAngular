@@ -13,25 +13,25 @@ export class UniversiteService {
     })
   }
   constructor(private http : HttpClient) { }
-  url: string = 'http://localhost:8088/Spring';
+  url: string = 'http://localhost:8086/kaddem';
 
 
   allUni(): Observable<any> {
-    return this.http.get(this.url + `/allUni`);
+    return this.http.get(this.url + `/getallUniversite`);
   }
   addUniv(universite: Universite){
-    return this.http.post(`${this.url}/addUni`, universite);
+    return this.http.post(`${this.url}/addUniversite/`, universite);
   }
- 
- deleteUni(idUni: number): Observable<Object> {
-    return this.http.delete(this.url + `/delUni/${idUni}`);
+
+ deleteUni(idUniversite: number): Observable<Object> {
+    return this.http.delete(this.url + `/deleteUniversite/${idUniversite}`);
   }
-  getUniversiteById(idUni: number): Observable<Universite> {
-    return this.http.get<Universite>(this.url + `/universite/${idUni}`);
-  } 
+  getUniversiteById(idUniversite: number): Observable<Universite> {
+    return this.http.get<Universite>(this.url + `/universite/${idUniversite}`);
+  }
   updateUni(universite: Universite ): Observable<Universite> {
-    return this.http.put<Universite>(this.url + `/putUni/`,universite );
+    return this.http.put<Universite>(this.url + `/updateUniversite/`,universite );
   }
-  
-  
+
+
 }

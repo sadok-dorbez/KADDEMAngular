@@ -1,0 +1,46 @@
+<h1>{{ action }} Equipe</h1>
+<form #f="ngForm" style="padding-left: 250px">
+  <div class="form-group col-md-6">
+    <label>Nom</label>
+    <input
+      [(ngModel)]="Equipe.nomEquipe"
+      type="text"
+      name="nomEquipe"
+      class="form-control"
+      required
+      minlength="3"
+      pattern="[a-zA-Z]{3,12}$"
+      #t="ngModel"
+    />
+    <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+      <div *ngIf="t.hasError('required')">this field is required</div>
+      <div *ngIf="t.hasError('minlength')">minlength = 3!</div>
+      <div *ngIf="t.hasError('pattern')">error pattern</div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-6">
+    <label>Niveau</label>
+    <select
+      [(ngModel)]="Equipe.niveau"
+      name="niveau"
+      class="form-control"
+      required
+      #s="ngModel"
+    >
+      <option value="JUNIOR">JUNIOR</option>
+      <option value="SENIOR">SENIOR</option>
+      <option value="EXPERT">EXPERT</option>
+    </select>
+    <div class="alert alert-danger" *ngIf="s.invalid && s.touched">
+      <div *ngIf="s.hasError('required')">This field is required</div>
+    </div>
+  </div>
+
+  <br />
+  <button class="btn btn-success" (click)="add()" [disabled]="f.invalid">
+    {{ action }}
+  </button>
+  &nbsp;
+  <button type="reset" class="btn btn-warning">reset</button>
+</form>

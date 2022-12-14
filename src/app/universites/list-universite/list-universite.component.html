@@ -1,8 +1,15 @@
 <div id="content" #content> 
+
   <h1>List Universite</h1>
+ 
   <a class="btn btn-sm btn-warning" (click)="toadd()">
-    Add Universite  
-</a>
+    Add Universite </a>
+<select (change)="onTableSizeChange($event)">
+    <option *ngFor="let size of tableSizes">
+        {{size}}
+    </option>
+      </select>
+    
   <table class="table">
       <thead>
           <tr>
@@ -15,25 +22,44 @@
           </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let u of listUniversites">
-              <td>{{u.idUni}}</td>
-              <td>{{u.nomUni }}</td>
+          <tr *ngFor="let u of listUniversites | paginate
+          : {
+              itemsPerPage: tableSize,
+              currentPage: page,
+              totalItems: count
+            };
+      let i = index
+    "
+  >
+
+              <td>{{u.idUniversite}}</td>
+              <td>{{u.nomUniversite }}</td>
               <td> {{u.adresse}}</td>
               <td> {{u.description}}
               </td>
-              
+          
               <td>
-                  <button class="btn btn-sm btn-danger" (click)="deleteUniv(u.idUni)" >
+                  <button class="btn btn-sm btn-danger" (click)="deleteUniv(u.idUniversite)" >
                       delete
                   </button>
                   &nbsp;
-                  <a class="btn btn-sm btn-warning" (click)="updateUniversite(u.idUni)">
+                  <a class="btn btn-sm btn-warning" (click)="updateUniversite(u.idUniversite)">
                       update  
                   </a>
                   &nbsp;
                   
               </td>
+            
           </tr>
+          
       </tbody>
   </table>
+  <div>
+    <pagination-controls
+      previousLabel="prev"
+      nextLabel="next"
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
+  </div>
   </div>

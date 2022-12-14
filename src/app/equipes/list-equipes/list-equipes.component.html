@@ -1,0 +1,39 @@
+<div id="content" #content>
+  <h1>List Equipes</h1>
+  <table class="table" id="excel-table">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Niveau</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let equipe of equipeList">
+      <td>{{ equipe.idEquipe }}</td>
+      <td>{{ equipe.nomEquipe }}</td>
+      <td>{{ equipe.niveau }}</td>
+      <td>
+        <button
+          class="btn btn-sm btn-danger"
+          (click)="delete(equipe.idEquipe)"
+        >
+          Delete
+        </button>
+        <button
+          class="btn btn-sm btn-warning"
+          (click)="update(equipe.idEquipe)"
+        >
+          Update
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<button
+  class="btn btn-sm btn-primary"
+  (click)="exportexel()"
+>Export Excel Teams</button>

@@ -1,0 +1,36 @@
+<div id="content" #content> 
+    <h1>List Department</h1>
+  
+  <!--   <input
+    type="number"
+    aria-labelledby="temperature low"
+    #myInput
+    [(ngModel)]="idDepart"
+    (input)="recherche(idDepart)"
+  /> -->
+  
+  
+ 
+    <table class="table">
+        <thead>
+            <tr>
+               <th>Nom</th>
+                <th>Prenom</th>
+             
+         
+            </tr>
+        </thead>
+        <tbody>
+         
+            <tr *ngFor="let u of listetudiants ">
+      
+                <td>{{u?.nomE}}</td>
+                <td>{{u?.prenomE }}</td>
+               
+               
+         
+            </tr>
+        </tbody>
+    </table>
+   
+    </div>

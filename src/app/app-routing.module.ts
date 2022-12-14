@@ -4,11 +4,36 @@ import { AddProjetComponent } from './GestionProjet/add-projet/add-projet.compon
 
 
 const routes: Routes = [
-  {path:"app-add-projet", component:AddProjetComponent},
-  { path: 'contracts', loadChildren: () => import('./contracts/contracts.module').then(m => m.ContractsModule) },
-  { path: 'etudiants', loadChildren: () => import('./etudiants/etudiants.module').then(m => m.EtudiantsModule) },
-  { path: 'departments', loadChildren: () => import('./departments/departments.module').then(m => m.DepartmentsModule) },
-  { path: 'universites', loadChildren: () => import('./universites/universites.module').then(m => m.UniversitesModule) },
+  { path: 'app-add-projet', component: AddProjetComponent },
+  {
+    path: 'contracts',
+    loadChildren: () =>
+      import('./contracts/contracts.module').then((m) => m.ContractsModule),
+  },
+  {
+    path: 'etudiants',
+    loadChildren: () =>
+      import('./etudiants/etudiants.module').then((m) => m.EtudiantsModule),
+  },
+  {
+    path: 'equipes',
+    loadChildren: () =>
+      import('./equipes/equipes.module').then((m) => m.EquipesModule),
+  },
+  {
+    path: 'departments',
+    loadChildren: () =>
+      import('./departments/departments.module').then(
+        (m) => m.DepartmentsModule
+      ),
+  },
+  {
+    path: 'universites',
+    loadChildren: () =>
+      import('./universites/universites.module').then(
+        (m) => m.UniversitesModule
+      ),
+  },
 ];
 
 @NgModule({

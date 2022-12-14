@@ -2,7 +2,7 @@
 <form #f="ngForm">
  <div class="form-group col-md-6">
     <label>Name:* </label>
-    <input type="text" name="nomUni" [(ngModel)]="universite.nomUni"
+    <input type="text" name="nomUni" [(ngModel)]="universite.nomUniversite"
     class="form-control" required minlength="3"
      pattern="[A-Za-z]{3,12}$" #n="ngModel">
     <div class="alert alert-danger" *ngIf="n.invalid && n.touched">

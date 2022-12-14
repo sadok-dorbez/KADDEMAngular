@@ -1,69 +1,63 @@
-<h1>{{action}}Department</h1>
-<form #f="ngForm">
- <div class="form-group col-md-6">
-    <label>Name:*</label>
-    <input type="text" name="nomDepart" [(ngModel)]="department.nomDepart"
-    class="form-control" required minlength="3"
-     pattern="[A-Za-z]{3,12}$" #n="ngModel">
-    <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
-        <div *ngIf="n.hasError('required')">
-           this field is required
-          </div>
-        <div *ngIf="n.hasError('minlength')">
-           minlength = 3 !
-        </div>
-        <div *ngIf="n.hasError('pattern')">
-          error pattern
-       </div>
-    </div>
- </div>
-  <div class="form-group col-md-6">
-    <label>Type</label>
-    <input type="text" name="type"
-    [(ngModel)]="department.type"
-    class="form-control" required #qt="ngModel">
-    <div class="alert alert-danger" *ngIf="qt.invalid && qt.touched">
-      this field is required
-    </div>
-    <div *ngIf="qt.hasError('minlength')">
-      minlength = 3 !
-   </div>
-   <div *ngIf="qt.hasError('pattern')">
-     error pattern
-  </div>
-  </div>
-  <div class="form-group col-md-6">
-   <label>Description</label>
-   <input type="textarea" name="description"
-   [(ngModel)]="department.description"
-   class="form-control" required #qt="ngModel">
-   <div class="alert alert-danger" *ngIf="qt.invalid && qt.touched">
-     this field is required
-   </div>
-   <div *ngIf="qt.hasError('minlength')">
-     minlength = 3 !
-  </div>
-  <div *ngIf="qt.hasError('pattern')">
-    error pattern
- </div>
- </div>
- <div class="form-group">
-  <label> Universite</label>
-  <div class="col-sm-10">
- <select name="department" class="from-controler">
- <option>---select--</option>  
- 
- <option> universite</option>
+<div class="col-md-6 offset-md-3">
+  <h3>Create Departement</h3>
 
-</select>
- </div>
+  <form  #form="ngForm" (ngSubmit)="add(form)">
+    <div class="form-group">
+      <label> Department</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nomDepartement"
+        [(ngModel)]="departement.nomDepartement"
+        name="nomDepartement"
+      />
+    </div>
+
+      <div class="form-group">
+        <label> Code</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Code"
+          [(ngModel)]="departement.code"
+          name="Code"
+        />
+      </div>
+
+    <div class="form-group">
+      <label> Type</label>
+      <input
+        type="text"
+        class="form-control"
+        id="type"
+        [(ngModel)]="departement.type"
+        name="type"
+      />
+    </div>
+
+    <div class="form-group">
+      <label> description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        [(ngModel)]="departement.description"
+        name="description"
+      />
+    </div>
+
+    <div class="form-group row">
+       <label for="universites" class="col-form-labes col-sm-4">Univeriste</label>
+      <select  [(ngModel)]="departement.universite" class="form-control" name="universite" (change)=" changeidUniversite($event)">
+        <option [ngValue]="undefined">---Select-----</option>
+        <option *ngFor="let universites  of  listuniversites;" [value]="universites.idUniversite" >
+         {{universites.nomUniversite}}
+
+        </option>
+
+      </select>
+    </div>
+
+    <button class="btn btn-success" type="submit">Submit</button>
+  </form>
 </div>
-
-
-  <button (click)="add()"
-   class="btn btn-sm btn-success"
-   [disabled]="f.invalid" >
-    {{action}}
-  </button>
-
-</form>

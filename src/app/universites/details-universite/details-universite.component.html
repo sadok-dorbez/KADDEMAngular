@@ -3,15 +3,15 @@
     <a routerLink="/universites/universite">More details</a>
  </div>
  <form class="col-md-6">
-   <input type="number" 
-   name="price" class="form-control" placeholder="search by price">
+  <app-search  (searchTextChanged)="onSearchTextEntered($event)"></app-search>
  </form>
  <br>
  
  <div class="row">
      <div class="col-md-8 col-xl-4" *ngFor="let univ of universites">
-             <div class="card border-primary mb-3" style="max-width: 18rem;"  >
-               <div class="card-header">{{univ.nomUni}}</div>
+          <div  *ngIf="searchText==='' || univ.adresse.toLowerCase().includes(searchText) ">
+             <div class="card border-primary mb-3" style="max-width: 18rem;" >
+               <div class="card-header">{{univ.nomUniversite}}</div>
                <div class="card-body text-primary">
                  <div class="card-body">
                   
@@ -26,6 +26,7 @@
                    <br>
                  </div>
                </div>
+              </div>
            
          
           

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Department } from 'src/app/core/Model/Department';
+import { Departement } from 'src/app/core/Model/Department';
 import { Etudiant } from 'src/app/core/Model/Etudiant';
 
 import { DepartmentService } from 'src/app/core/services/department.service';
@@ -9,21 +9,12 @@ import { DepartmentService } from 'src/app/core/services/department.service';
   styleUrls: ['./details-department.component.css']
 })
 export class DetailsDepartmentComponent implements OnInit {
-  idDepart:any;
+  idDepartement:any;
   constructor(private departmentserivce: DepartmentService)  { }
-   currentDepartment: Department ={
-    idDepart: 0,
-    nomDepart: "",
-    code: "",
-    type: "",
-    universites:{nomUni:""},
-   
-    description:""
-   
-  };
-  public list :  Department[];
-  listDepartment:Department;
-  departements: Department[];
+  
+  public list :  Departement[];
+  listDepartment:Departement;
+  departements: Departement[];
   departmentList:any
   currentIndex = -1;
   nomDepart=""
@@ -41,19 +32,12 @@ export class DetailsDepartmentComponent implements OnInit {
   }
   refreshList(): void {
     this.retriveDepartments();
-    this.currentDepartment = { idDepart: 0,
-      nomDepart: "",
-      code: "",
-      type: "",
- 
-  universites:{nomUni:""},
-    description:""
-  };
+   
     this.currentIndex = -1;
   }
 
-  setActiveTutorial(departement: Department, index: number): void {
-    this.currentDepartment = departement;
+  setActiveTutorial(departement: Departement, index: number): void {
+
     this.currentIndex = index;
   }
  

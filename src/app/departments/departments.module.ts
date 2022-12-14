@@ -6,8 +6,9 @@ import { DepartmentsComponent } from './departments.component';
 import { CreateDepartmentComponent } from './create-department/create-department.component';
 import { DetailsDepartmentComponent } from './details-department/details-department.component';
 import { ListDepartmentComponent } from './list-department/list-department.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ShowEtudiantsComponent } from './show-etudiants/show-etudiants.component';
 
 
 
@@ -16,8 +17,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DepartmentsComponent,
     CreateDepartmentComponent,
     DetailsDepartmentComponent,
-    ListDepartmentComponent
+    ListDepartmentComponent,
+    ShowEtudiantsComponent
   ],
-  imports: [CommonModule, DepartmentsRoutingModule, FormsModule, NgxPaginationModule],
+  imports: [CommonModule, DepartmentsRoutingModule, FormsModule, NgxPaginationModule, ReactiveFormsModule],
 })
 export class DepartmentsModule { }
